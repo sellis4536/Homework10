@@ -61,7 +61,6 @@ def precipitation():
                         filter(Measurement.date <= '2017-08-23').\
                         filter(Measurement.date >= '2016-08-23').all()
                         
-    #ravel method initially used and discarded -- datePrecip = list(np.ravel(results)) #ravel attempts to convert matrix into flat list
     # Convert the query results into a dictionary with KVP date:prcp
     datePrcp = []
     for result in results:
@@ -76,7 +75,6 @@ def precipitation():
 def stations():
     """Returns a listing of Hawaii Weather Stations"""
     results = session.query(Station.station, Station.name).all()
-     #ravel method initially used and discarded -- stationRavel = list(np.ravel(results)) #ravel attempts to convert matrix into flat list
     staName = []
     for result in results:
         staNameDict = {}
@@ -93,7 +91,6 @@ def tobs():
                 filter(Measurement.date <= '2017-08-23').\
                 filter(Measurement.date >= '2016-08-23').\
                 filter(Measurement.station=='USC00516128').all()
-     #ravel method initially used and discarded -- tobsRavel = list(np.ravel(results))
     dateTobs = []
     for result in results:
         tobsDict = {}
